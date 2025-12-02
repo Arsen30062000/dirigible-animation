@@ -15,24 +15,23 @@
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: auto;
+            display: block;
+            min-height: 400px;
+            height: 400px;
+            overflow: hidden;
         }
 
         .dirigible-animation-section {
             width: 100%;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background: transparent;
         }
 
         .animation-container {
             position: relative;
             width: 100%;
-            height: 400px; /* Fixed constant height - 400px */
+            height: 400px;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(9, 92, 225, 0.05) 0%, rgba(251, 187, 9, 0.05) 100%);
             box-shadow: rgba(9, 92, 225, 0.08) 0px 4px 20px;
@@ -48,7 +47,6 @@
             overflow: hidden;
         }
 
-        /* Clouds - Simple and smooth */
         .cloud {
             position: absolute;
             background: rgba(255, 255, 255, 0.85);
@@ -58,7 +56,6 @@
             filter: blur(1.5px);
         }
 
-        /* Dirigible - ORIGINAL SIZE, NO SCALING */
         .dirigible {
             position: absolute;
             width: 400px;
@@ -68,7 +65,6 @@
             will-change: transform;
         }
 
-        /* Main Balloon - ORIGINAL SIZE, NO SCALING */
         .balloon {
             position: absolute;
             width: 350px;
@@ -80,7 +76,6 @@
                 inset 10px 0 10px rgba(255,255,255,0.2);
         }
 
-        /* Golden Text on Balloon */
         .balloon-text {
             position: absolute;
             top: 50%;
@@ -97,7 +92,6 @@
             white-space: nowrap;
         }
 
-        /* Tail Fins - ORIGINAL SIZE, NO SCALING */
         .tail-fin {
             position: absolute;
             background: linear-gradient(to bottom, #b71c1c, #7f0000);
@@ -135,7 +129,6 @@
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 10px 50%);
         }
 
-        /* Gondola - ORIGINAL SIZE, NO SCALING */
         .gondola {
             position: absolute;
             top: 95px;
@@ -153,7 +146,6 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Gondola Windows - ORIGINAL SIZE, NO SCALING */
         .window {
             width: 28px;
             height: 28px;
@@ -177,7 +169,6 @@
             border-radius: 50%;
         }
 
-        /* Gondola Details - ORIGINAL SIZE, NO SCALING */
         .gondola-detail {
             position: absolute;
             background: #263238;
@@ -200,7 +191,6 @@
             border-radius: 0 0 5px 5px;
         }
 
-        /* Propeller - ORIGINAL SIZE, NO SCALING */
         .propeller {
             position: absolute;
             top: 140px;
@@ -221,7 +211,6 @@
         .blade1 { top: 10px; left: 0; }
         .blade2 { top: 10px; left: 0; transform: rotate(90deg); }
 
-        /* Banner Container - ORIGINAL SIZE, NO SCALING */
         .banner-container {
             position: absolute;
             width: 450px;
@@ -231,7 +220,6 @@
             will-change: transform;
         }
 
-        /* Cables - ORIGINAL SIZE, NO SCALING */
         .cables {
             position: absolute;
             width: 550px;
@@ -257,7 +245,6 @@
             bottom: 0;
         }
 
-        /* Cable attachment points */
         .cable::before {
             content: '';
             position: absolute;
@@ -272,7 +259,6 @@
             border: 1px solid #666;
         }
 
-        /* Elegant Modern Banner - ORIGINAL SIZE, NO SCALING */
         .banner {
             position: absolute;
             width: 100%;
@@ -292,7 +278,6 @@
             overflow: hidden;
         }
 
-        /* Banner subtle pattern overlay */
         .banner::before {
             content: '';
             position: absolute;
@@ -308,7 +293,6 @@
             pointer-events: none;
         }
 
-        /* Elegant banner accent line */
         .banner::after {
             content: '';
             position: absolute;
@@ -323,7 +307,6 @@
                 transparent 100%);
         }
 
-        /* Banner text */
         .banner-text {
             color: white;
             font-weight: 700;
@@ -339,7 +322,6 @@
             z-index: 2;
         }
 
-        /* Banner subtle glow effect */
         .banner-text::after {
             content: 'Մաթեմատիկան հասանելի է բոլորին';
             position: absolute;
@@ -358,7 +340,6 @@
             opacity: 0.5;
         }
 
-        /* Elegant corner accents */
         .banner-corner {
             position: absolute;
             width: 20px;
@@ -394,7 +375,6 @@
             border-top: none;
         }
 
-        /* Subtle floating particles */
         .particle {
             position: absolute;
             width: 3px;
@@ -421,31 +401,18 @@
                 opacity: 0;
             }
         }
-
-        /* NO MEDIA QUERIES - NO SCALING */
-
-        /* NEW RULE: Fix for iframe embedding */
-        body {
-            min-height: auto !important;
-            height: 400px !important; /* Matches your .animation-container height */
-            display: block !important;
-            padding: 0 !important;
-        }
     </style>
 </head>
 <body>
     <div class="dirigible-animation-section">
         <div class="animation-container">
             <div class="sky" id="sky">
-                <!-- Clouds will be generated by JavaScript -->
                 
-                <!-- Cables -->
                 <div class="cables" id="cables">
                     <div class="cable cable-top" id="cableTop"></div>
                     <div class="cable cable-bottom" id="cableBottom"></div>
                 </div>
                 
-                <!-- Dirigible -->
                 <div class="dirigible" id="dirigible">
                     <div class="balloon">
                         <div class="balloon-text">Գիտե՞ս չէ</div>
@@ -466,19 +433,14 @@
                     </div>
                 </div>
                 
-                <!-- Elegant Modern Banner -->
                 <div class="banner-container" id="bannerContainer">
                     <div class="banner">
-                        <!-- Elegant corner accents -->
                         <div class="banner-corner corner-tl"></div>
                         <div class="banner-corner corner-tr"></div>
                         <div class="banner-corner corner-bl"></div>
                         <div class="banner-corner corner-br"></div>
                         
-                        <!-- Main text -->
                         <div class="banner-text">Մաթեմատիկան հասանելի է բոլորին</div>
-                        
-                        <!-- Particles will be added by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -486,24 +448,16 @@
     </div>
 
     <script>
-        // Configuration - Simple and fixed
         const CONFIG = {
-            // Fixed distance between dirigible and banner (in pixels)
             CABLE_DISTANCE: 550,
-            // Element dimensions - ORIGINAL SIZES
             DIRIGIBLE_WIDTH: 400,
             BANNER_WIDTH: 450,
-            // Animation speeds
             DIRIGIBLE_SPEED: 80,
             CLOUD_BASE_SPEED: 60,
-            // Container height - CONSTANT 400px
             CONTAINER_HEIGHT: 400,
-            // Vertical position - adjusted for 400px container
-            VERTICAL_POSITION: 0.35, // Slightly higher in 400px container
-            // Different vertical offsets for cables and banner
+            VERTICAL_POSITION: 0.35,
             CABLES_VERTICAL_OFFSET: 25,
             BANNER_VERTICAL_OFFSET: 15,
-            // Cloud settings - Adjusted for 400px height
             CLOUD_COUNT: 3,
             CLOUD_SIZES: [
                 { width: 100, height: 35, speed: 1.2, top: 50 },
@@ -512,12 +466,10 @@
             ]
         };
 
-        // Animation state
         let animationId = null;
         let lastTimestamp = 0;
         let dirigibleX = -CONFIG.DIRIGIBLE_WIDTH;
         
-        // DOM elements
         const dirigible = document.getElementById('dirigible');
         const bannerContainer = document.getElementById('bannerContainer');
         const cables = document.getElementById('cables');
@@ -527,7 +479,6 @@
         const sky = document.getElementById('sky');
         const banner = document.querySelector('.banner');
 
-        // Create subtle floating particles
         function createParticles() {
             const particleCount = 3;
             for (let i = 0; i < particleCount; i++) {
@@ -547,7 +498,6 @@
             }
         }
 
-        // Initialize clouds - Simple and smooth
         function initClouds() {
             for (let i = 0; i < CONFIG.CLOUD_COUNT; i++) {
                 const cloud = document.createElement('div');
@@ -557,14 +507,11 @@
                 cloud.style.width = `${size.width}px`;
                 cloud.style.height = `${size.height}px`;
                 
-                // Position clouds at different heights (in pixels)
                 cloud.style.top = `${size.top}px`;
                 
-                // Random starting positions for natural appearance
                 const startX = Math.random() * window.innerWidth * 1.2;
                 cloud.style.left = `${startX}px`;
                 
-                // Store cloud properties for animation
                 cloud.dataset.speed = size.speed;
                 cloud.dataset.startX = startX;
                 cloud.dataset.size = size.width;
@@ -573,13 +520,11 @@
             }
         }
 
-        // Initialize cable lengths
         function initCables() {
             cableTop.style.width = `${CONFIG.CABLE_DISTANCE}px`;
             cableBottom.style.width = `${CONFIG.CABLE_DISTANCE}px`;
         }
 
-        // Calculate positions
         function calculatePositions() {
             const containerWidth = window.innerWidth;
             const verticalPosition = CONFIG.CONTAINER_HEIGHT * CONFIG.VERTICAL_POSITION;
@@ -589,7 +534,6 @@
             const dirigibleRightEdge = dirigibleX + CONFIG.DIRIGIBLE_WIDTH;
             const bannerLeftEdge = bannerX;
             
-            // Reset when both elements have left the screen
             if (dirigibleRightEdge > containerWidth && bannerLeftEdge > containerWidth) {
                 const resetOffset = -CONFIG.DIRIGIBLE_WIDTH;
                 dirigibleX = resetOffset;
@@ -614,14 +558,12 @@
             };
         }
 
-        // Update element positions
         function updatePositions(positions) {
             dirigible.style.transform = `translate3d(${positions.dirigible.x}px, ${positions.dirigible.y}px, 0)`;
             bannerContainer.style.transform = `translate3d(${positions.banner.x}px, ${positions.banner.y}px, 0)`;
             cables.style.transform = `translate3d(${positions.cables.x}px, ${positions.cables.y}px, 0)`;
         }
 
-        // Animate clouds - Simple, smooth movement
         function animateClouds(timestamp) {
             const clouds = document.querySelectorAll('.cloud');
             const containerWidth = window.innerWidth;
@@ -631,13 +573,10 @@
                 let currentLeft = parseFloat(cloud.style.left);
                 const cloudSize = parseInt(cloud.dataset.size);
                 
-                // Calculate individual cloud speed
                 const cloudSpeed = CONFIG.CLOUD_BASE_SPEED * speedMultiplier;
                 
-                // Smooth movement based on time
                 currentLeft -= cloudSpeed * (timestamp - lastTimestamp) / 1000;
                 
-                // Reset cloud when it completely exits
                 if (currentLeft < -cloudSize) {
                     currentLeft = containerWidth + 50;
                 }
@@ -646,75 +585,58 @@
             });
         }
 
-        // Animate propeller
         function animatePropeller(timestamp) {
             const rotation = (timestamp / 10) % 360;
             propeller.style.transform = `rotate(${rotation}deg)`;
         }
 
-        // Main animation loop
         function animate(timestamp) {
             if (!lastTimestamp) lastTimestamp = timestamp;
             
             const deltaTime = (timestamp - lastTimestamp) / 1000;
             
-            // Update dirigible position
             dirigibleX += CONFIG.DIRIGIBLE_SPEED * deltaTime;
             
-            // Calculate and update all positions
             const positions = calculatePositions();
             updatePositions(positions);
             
-            // Animate clouds with smooth movement
             animateClouds(timestamp);
             
-            // Animate propeller
             animatePropeller(timestamp);
             
-            // Update timestamp for next frame
             lastTimestamp = timestamp;
             
-            // Continue animation
             animationId = requestAnimationFrame(animate);
         }
 
-        // Handle window resize
         function handleResize() {
             if (animationId) {
                 cancelAnimationFrame(animationId);
             }
             
-            // Reset positions
             dirigibleX = -CONFIG.DIRIGIBLE_WIDTH;
             const positions = calculatePositions();
             updatePositions(positions);
             
-            // Restart animation
             lastTimestamp = 0;
             animationId = requestAnimationFrame(animate);
         }
 
-        // Initialize animation
         function init() {
             createParticles();
             initClouds();
             initCables();
             
-            // Set initial positions
             const positions = calculatePositions();
             updatePositions(positions);
             
-            // Start animation
             animationId = requestAnimationFrame(animate);
             
-            // Handle window resize
             window.addEventListener('resize', handleResize);
         }
 
-        // Start when page loads
         document.addEventListener('DOMContentLoaded', init);
 
-        // Clean up on page unload
         window.addEventListener('beforeunload', () => {
             if (animationId) {
                 cancelAnimationFrame(animationId);
